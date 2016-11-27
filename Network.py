@@ -3,14 +3,10 @@
 
 class Network:
 
-    serverInstantiationTime = 8
-    serverUpdateNonAvailability = 3
-    linkInstantiationTime = 5
-    linkUpdateNonAvailability = 3
-    routerInstantiationTime = 12
-    linkUpdateNonAvailability = 7
     totalTime = 1
-    Score = 0
+    Score = 0 # can be negative or positive
+    SLO = ''
+    Sessions = 0
 
     def __init__(self, name, numberRouter, numberServer, budget):
         self.name = name
@@ -31,11 +27,15 @@ class Network:
         return self.Score + 1
 
     class Server:
-        pass
+        serverInstantiationTime = 8
+        serverUpdateNonAvailability = 3
     class Router:
-        pass
+        routerInstantiationTime = 12
+        routerUpdateNonAvailability = 7
+
     class Link:
-        pass
+        linkInstantiationTime = 5
+        linkUpdateNonAvailability = 3
 
 class Resource:
 
@@ -59,6 +59,14 @@ class CPU3(Resource):
     performance = 3
     def __init__(self):
         pass
+class Flow:
+    sessionNumber = 0
+    def __init__(self):
+        pass
+    def flowGenerator(self):
+        pass
+
+
 
 if __name__ == '__main__':
     print('This is the main program')
