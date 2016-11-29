@@ -3,7 +3,7 @@
 # Now you need a UML Diagram
 
 import numpy as np
-
+from Util import *
 
 # This is the skeleton of the Network
 class Network:
@@ -42,16 +42,26 @@ class Network:
         linkInstantiationTime = 5
         linkUpdateNonAvailability = 3
 
-class SLA:
-    def __init__(self):
-        pass
+class SLO:
+    id = 0
+    def __init__(self,id):
+        self.id = id
 
-    class SLO:
-        def __init__(self):
-            pass
+    def getInfo(self):
+        print(self.id)
+
+class SLA:
+    name = "SLA"
+    MySLOs = [SLO(4),SLO(2),SLO(1)]
+
+    def __init__(self,name):
+        self.name = name
+
+
 
 # This is the service on top of the network
 class Service:
+    mySLA = SLA("none")
     def __init__(self):
         pass
 
@@ -96,31 +106,55 @@ class Flow:
 class NetGame:
 
     level = ""
+    totalTime = 0
+    MyNet = Network('Network 1', 3, 5, 100);
+    MyFlow = Flow("easy");
 
-    def __init__(self):
-        pass
+    def __init__(self,Network,Flow):
+        self.MyNet = NetGame
+        self.MyFlow = Flow
+
 
     def setDifficultyLevel(self,level):
         self.level = level
         print(self.level)
 
+    def start(self,totalTime):
+        self.totalTime = totalTime
+        ## Here the main code
+        input = "1"
+        while(input != "0"):
+            print("enter key")
+            input = raw_input()
+            print input
+        jaafar()
 
 if __name__ == '__main__':
     print('This is the main program')
 
-
 # Instanciate the Network with a name, a number of router, a number of servers and a budget
-
 MyNet = Network('Network 1', 3, 5, 100)
 MyFlow = Flow("easy");
 
-Game = NetGame()
+
+Game = NetGame(MyNet,MyFlow)
 
 Game.setDifficultyLevel("easy")
+
+Game.start(100)
+
+
 
 print(Network.__dict__)
 
 print(MyNet.__dict__)
 
 print(Game.__dict__)
+
+MySLA = SLA("SLA1")
+
+
+
+
+print(MySLA.MySLOs[0].getInfo())
 
