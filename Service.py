@@ -8,7 +8,7 @@ class Service(object):
     mySLA = SLA("none")
 
     def __init__(self):
-        pass
+        self.x = 5
     def createSLA(self,SLA):
         self.mySLA = SLA
     def getSLA(self):

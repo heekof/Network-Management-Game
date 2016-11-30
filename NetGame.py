@@ -1,7 +1,7 @@
-from Util import *
-from Flow import *
-from Network import *
-
+from Util import jaafar
+from Flow import Flow
+from Network import Network
+from Manager import Manager
 # Class Network Game
 
 class NetGame:
@@ -9,11 +9,13 @@ class NetGame:
     Score = 0  # can be negative or positive
     level = ""
     totalTime = 0
-    MyNet = Network('Network 1', 3, 5, 100);
+    localNet = Network('Network 1', 3, 5, 100);
+    localManager = Manager("admin")
     MyFlow = Flow("easy");
 
-    def __init__(self,Network):
-        self.MyNet = NetGame
+    def __init__(self,Network,Manager):
+        self.localNet = NetGame
+        self.localManager = Manager
 
 
 
